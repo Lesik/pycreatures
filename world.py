@@ -12,5 +12,27 @@ __email__ = "pidgornyy@informatik.uni-frankfurt.de," \
 
 class World:
 
-	def __init__(self):
+	world = {}
+
+	def __init__(self, rows=50, cols=50):
+		self.rows = rows
+		del rows
+		self.cols = cols
+		del cols
+		for row in range(self.rows):
+			for col in range(self.cols):
+				self.world.update({(row, col): None})
 		pass
+
+	def view_world(self):
+		for row in range(self.rows):
+			for col in range(self.cols):
+				if self.world[(row,col)] == None:
+					print('N', end="")
+			print()
+
+	def add_thing(self, posx, posy):
+		pass
+
+world = World(rows=10, cols=20)
+world.view_world()
