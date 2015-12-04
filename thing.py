@@ -10,7 +10,6 @@ __email__ = "pidgornyy@informatik.uni-frankfurt.de," \
                         "berger.phillip@hotmail.com"
 
 
-class World:
-
+class Thing:
 	def __init__(self):
 		pass
