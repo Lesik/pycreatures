@@ -3,7 +3,7 @@
 """Docstring
 """
 
-import random
+from thing import Thing
 
 __author__ = "6082200: Oles Pidgornyy, 6040608: Phillip Berger"
 __email__ = "pidgornyy@informatik.uni-frankfurt.de," \
@@ -24,15 +24,26 @@ class World:
 				self.world.update({(row, col): None})
 		pass
 
+	def rem_thing(self, posx, posy):
+		self.world.update({(posx, posy): None})
+
+	def view_coordinate(self, row, col):
+		if self.world[(row, col)] is None:
+			print('.', end='')
+		else:
+			print(self.world[(row, col)], end='')
+
 	def view_world(self):
 		for row in range(self.rows):
 			for col in range(self.cols):
-				if self.world[(row,col)] == None:
-					print('N', end="")
+				self.view_coordinate(row, col)
 			print()
 
 	def add_thing(self, posx, posy):
-		pass
+		self.world.update({(posx, posy): Thing()})
 
 world = World(rows=10, cols=20)
+world.add_thing(0, 15)
+world.add_thing(9, 15)
+world.rem_thing(9, 15)
 world.view_world()
