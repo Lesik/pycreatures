@@ -41,9 +41,14 @@ class World:
     def add_thing(self, posx, posy):
         self.world.update({(posx, posy): Thing()})
 
+    def get_pos(self, posx, posy):
+        pos = self.world[(posx, posy)]
+        print(pos)
+
 
 world = World(rows=10, cols=20)
 world.add_thing(0, 15)
 world.add_thing(9, 15)
 world.rem_thing(9, 15)
 world.view_world()
+world.get_pos(0, 15)
