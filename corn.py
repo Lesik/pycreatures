@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
 
-class Corn:
+"""Docstring
+"""
+
+from plant import Plant
+import random
+
+
+class Corn(Plant):
 	pass
