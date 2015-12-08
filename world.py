@@ -42,9 +42,16 @@ class World:
         self.world.update({(posx, posy): Thing()})
 
     def get_pos(self, posx, posy):
-        pos = self.world[(posx, posy)]
-        print(pos)
+        print(self.world[(posx, posy)])
 
+    def get_cardpoint_pos(self, posx, posy, cardpoint):
+        if cardpoint == 0:
+            if posy == 0:
+                print(self.world[(posx, self.rows)])
+            else:
+                print(self.world[(posx, posy - 1)])
+        else:
+            pass
 
 world = World(rows=10, cols=20)
 world.add_thing(0, 15)
@@ -52,3 +59,4 @@ world.add_thing(9, 15)
 world.rem_thing(9, 15)
 world.view_world()
 world.get_pos(0, 15)
+world.get_cardpoint_pos(0, 15, 0)
