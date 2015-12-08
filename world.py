@@ -40,32 +40,21 @@ class World:
     def add_thing(self, posx, posy):
         self.world.update({(posx, posy): Thing()})
 
-
-def get_pos(self, posx, posy):
-    print(self.world[(posx, posy)])
-
-
-def get_cardpoint_pos(self, posx, posy, cardpoint):
-    if cardpoint == 0:
-        if posy == 0:
-            print(self.world[(posx, self.rows)])
+    def get_cardpoint_pos(self, posx, posy, cardpoint):
+        if cardpoint == 0:
+            if posx == 0:
+                print(self.world[(self.rows - 1, posy)])
+            else:
+                print(self.world[(posx - 1, posy)])
         else:
-            print(self.world[(posx, posy - 1)])
-    else:
-        pass
+            pass
 
 
 world = World(rows=10, cols=20)
-print("      Empty world:")
-world.view_world()
 world.add_thing(0, 15)
-print("      Added Thing at 0, 15:")
-world.view_world()
 world.add_thing(9, 15)
-print("      Added Thing at 9, 15:")
-world.view_world()
 world.rem_thing(9, 15)
-print("      Removed Thing at 9, 15:")
 world.view_world()
-world.get_pos(0, 15)
+world.view_coordinate(0, 15)
 world.get_cardpoint_pos(0, 15, 0)
+world.get_cardpoint_pos(1, 15, 0)
