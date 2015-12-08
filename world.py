@@ -7,54 +7,66 @@ from thing import Thing
 
 __author__ = "6082200: Oles Pidgornyy, 6040608: Phillip Berger"
 __email__ = "pidgornyy@informatik.uni-frankfurt.de," \
-            "berger.phillip@hotmail.com"
+			"berger.phillip@hotmail.com"
 
 
 class World:
-    world = {}
+	world = {}
 
-    def __init__(self, rows=50, cols=50):
-        self.rows = rows
-        del rows
-        self.cols = cols
-        del cols
-        for row in range(self.rows):
-            for col in range(self.cols):
-                self.world.update({(row, col): None})
+	def __init__(self, rows=50, cols=50):
+		self.rows = rows
+		del rows
+		self.cols = cols
+		del cols
+		for row in range(self.rows):
+			for col in range(self.cols):
+				self.world.update({(row, col): None})
 
-    def rem_thing(self, posx, posy):
-        self.world.update({(posx, posy): None})
+	def rem_thing(self, posx, posy):
+		self.world.update({(posx, posy): None})
 
-    def view_coordinate(self, row, col):
-        if self.world[(row, col)] is None:
-            print('.', end='')
-        else:
-            print(self.world[(row, col)], end='')
+	def view_coordinate(self, row, col):
+		if self.world[(row, col)] is None:
+			return '.'
+		else:
+			return self.world[(row, col)]
 
-    def view_world(self):
-        for row in range(self.rows):
-            for col in range(self.cols):
-                self.view_coordinate(row, col)
-            print()
+	def view_world(self):
+		for row in range(self.rows):
+			for col in range(self.cols):
+				print(self.view_coordinate(row, col), end='')
+			print()
 
-    def add_thing(self, posx, posy):
-        self.world.update({(posx, posy): Thing()})
+	def add_thing(self, posx, posy):
+		self.world.update({(posx, posy): Thing()})
 
-    def get_cardpoint_pos(self, posx, posy, cardpoint):
-        if cardpoint == 0:
-            if posx == 0:
-                print(self.world[(self.rows - 1, posy)])
-            else:
-                print(self.world[(posx - 1, posy)])
-        else:
-            pass
+	def get_cardpoint_pos(self, posy, posx, cardpoint):
+		offsetx = 0
+		offsety = 0
+		if (cardpoint == 0):
+			offsety = -1
+		elif (cardpoint == 1):
+			offsetx = 1
+		elif (cardpoint == 2):
+			offsety = 1
+		elif (cardpoint == 3):
+			offsetx = -1
+
+		if posx == 0:
+			return self.world[(posy, self.cols - 1)]
+		elif posy == 0:
+			return self.world[(self.rows - 1, posx)]
+		else:
+			return self.world[(posy + offsety, posx + offsetx)]
 
 
 world = World(rows=10, cols=20)
 world.add_thing(0, 15)
 world.add_thing(9, 15)
+world.add_thing(5, 5)
 world.rem_thing(9, 15)
 world.view_world()
-world.view_coordinate(0, 15)
-world.get_cardpoint_pos(0, 15, 0)
-world.get_cardpoint_pos(1, 15, 0)
+print(world.view_coordinate(0, 15))
+print(world.get_cardpoint_pos(0, 15, 0))
+print(world.get_cardpoint_pos(1, 15, 0))
+print(world.get_cardpoint_pos(5, 4, 1))
