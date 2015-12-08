@@ -7,4 +7,6 @@ from plant import Plant
 
 
 class Corn(Plant):
-	pass
+
+	symbol = "C"
+

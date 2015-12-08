@@ -7,12 +7,15 @@ import random
 
 __author__ = "6082200: Oles Pidgornyy, 6040608: Phillip Berger"
 __email__ = "pidgornyy@informatik.uni-frankfurt.de," \
-            "berger.phillip@hotmail.com"
+			"berger.phillip@hotmail.com"
 
 
 class Thing:
-    def __init__(self):
-        pass
 
-    def __str__(self):
-        return "T"
+	symbol = "T"
+
+	def __init__(self):
+		pass
+
+	def __str__(self):
+		return self.symbol
