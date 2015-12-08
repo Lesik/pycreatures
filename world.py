@@ -26,16 +26,16 @@ class World:
 	def rem_thing(self, posx, posy):
 		self.world.update({(posx, posy): None})
 
-	def view_coordinate(self, row, col):
+	def get_coordinate(self, row, col):
 		if self.world[(row, col)] is None:
-			print('.', end='')
+			return '.'
 		else:
-			print(self.world[(row, col)], end='')
+			return self.world[(row, col)]
 
 	def view_world(self):
 		for row in range(self.rows):
 			for col in range(self.cols):
-				self.view_coordinate(row, col)
+				print(self.get_coordinate(row, col), end='')
 			print()
 
 	def add_thing(self, posx, posy):

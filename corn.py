@@ -4,7 +4,6 @@
 """
 
 from plant import Plant
-import random
 
 
 class Corn(Plant):
