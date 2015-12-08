@@ -19,3 +19,9 @@ class Thing:
 
 	def __str__(self):
 		return self.symbol
+
+	def get_age(self):
+		return self.age
+
+	def perform_action(self):
+		self.age += 1
