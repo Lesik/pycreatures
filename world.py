@@ -41,6 +41,21 @@ class World:
 	def add_thing(self, posx, posy):
 		self.world.update({(posx, posy): Thing()})
 
+
+def get_pos(self, posx, posy):
+    print(self.world[(posx, posy)])
+
+
+def get_cardpoint_pos(self, posx, posy, cardpoint):
+    if cardpoint == 0:
+        if posy == 0:
+            print(self.world[(posx, self.rows)])
+        else:
+            print(self.world[(posx, posy - 1)])
+    else:
+        pass
+
+
 world = World(rows=10, cols=20)
 print("      Empty world:")
 world.view_world()
