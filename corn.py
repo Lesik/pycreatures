@@ -3,10 +3,18 @@
 """Docstring
 """
 
-from plant import Plant
+__author__ = "6082200: Oles Pidgornyy, 6040608: Phillip Berger"
+__email__ = "pidgornyy@informatik.uni-frankfurt.de," \
+						"berger.phillip@hotmail.com"
 
 
-class Corn(Plant):
+from thing import Thing
 
-	symbol = "C"
 
+class Corn(Thing):
+
+	symbol = "§"
+	seed_cycle = 6
+
+	def perform_action(self):
+		pass
