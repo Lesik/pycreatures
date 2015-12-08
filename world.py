@@ -60,7 +60,7 @@ class World:
 			return self.world[(posy + offsety, posx + offsetx)]
 
 
-world = World(rows=10, cols=20)
+world = World(rows=29, cols=79)
 world.add_thing(0, 15)
 world.add_thing(9, 15)
 world.add_thing(5, 5)
