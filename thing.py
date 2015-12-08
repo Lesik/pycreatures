@@ -11,8 +11,9 @@ __email__ = "pidgornyy@informatik.uni-frankfurt.de," \
 
 
 class Thing:
+
     def __init__(self):
         pass
 
     def __str__(self):
-        return "T"
+        return self.
