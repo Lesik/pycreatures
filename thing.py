@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Docstring
+""" Thing class.
 """
 
 import random
@@ -15,9 +15,13 @@ class Thing:
 	symbol = "T"
 
 	def __init__(self):
+		""" Do nothing yet.
+		"""
 		pass
 
 	def __str__(self):
+		""" Return own symbol.
+		"""
 		return self.symbol
 
 	def get_age(self):
